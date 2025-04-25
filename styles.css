@@ -1,0 +1,351 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #f1f3f4;
+    color: #333;
+}
+
+#tables-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.month-container {
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.month-container:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.month-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    table-layout: fixed;
+}
+
+.month-container th,
+.month-container td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 0.9em;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+/* Centraliza os inputs de adicionar dívida */
+.month-container .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Ajuste para inputs mais compactos e centralizados */
+.month-container .input-wrapper input[type="text"],
+.month-container .input-wrapper input[type="number"] {
+    width: 80%;
+    max-width: 250px;
+    margin: 4px 0;
+}
+
+/* Botão inferior ajustado */
+.month-container .input-wrapper button {
+    margin-top: 10px;
+}
+
+
+
+/* Botões padrão para a página */
+button {
+    padding: 10px 15px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Botão azul para adicionar dívidas */
+.month-container button {
+    background-color: #007BFF;
+    color: white;
+}
+
+.month-container button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Botão verde para salvar */
+.save-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Botão amarelo para edição */
+.edit-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.edit-btn:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+/* Botão vermelho para excluir */
+.month-container td button {
+    background-color: #dc3545;
+    color: white;
+    font-size: 0.9em;
+    padding: 8px;
+}
+
+.month-container td button:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+/* Botão verde para adicionar dívidas parceladas */
+.parcelada-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 18px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 8px;
+}
+
+.parcelada-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+#parcelamento-form {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 999;
+  }
+  
+  
+  
+
+/* Ajuste para alinhar renda mensal e lista de compras lado a lado */
+.renda-e-compras {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+}
+
+/* Seção da Renda */
+.income-container {
+    flex: 1;
+    max-width: 859px;
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    border-radius: 15px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 16px;
+}
+
+.income-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajuste para Lista de Compras */
+#compras {
+    flex: 1;
+    max-width: 450px;
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: -510px;
+    margin-left: 500px;
+}
+
+
+#compras:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilização dos títulos */
+.lista-compras h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Campo de entrada e botão de adicionar */
+.input-adicionar {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.input-adicionar input {
+    flex: 1;
+    padding: 14px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.input-adicionar input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.input-adicionar button {
+    background-color: #007BFF;
+    color: white;
+    font-size: 1em;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.input-adicionar button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Estilização dos itens da lista */
+#lista-compras {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#lista-compras li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#lista-compras li:hover {
+    transform: translateX(6px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Botão de remover item */
+#lista-compras li button {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    font-size: 0.9em;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#lista-compras li button:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+#userMenu {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+}
+
+#userIcon {
+    background-color: #4CAF50;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#logoutMenu {
+    display: none;
+    margin-top: 5px;
+}
+
+#logoutMenu.visible {
+    display: block;
+}
+
+#logoutBtn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+    #tables-container {
+        grid-template-columns: 1fr;
+    }
+
+    .renda-e-compras {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .income-container, #compras {
+        max-width: 100%;
+    }
+}
